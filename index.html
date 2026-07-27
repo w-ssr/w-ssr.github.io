@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wssr</title>
+    <meta name="description" content="wssr — software engineer in training.">
+    <meta name="theme-color" content="#060409">
+    <link rel="icon" href="assets/pfp.png">
+    <meta property="og:title" content="wssr">
+    <meta property="og:description" content="software engineer in training">
+    <meta property="og:image" content="assets/pfp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<canvas id="shader" aria-hidden="true"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+<div class="sparkles" aria-hidden="true">
+    <div class="sparkle" style="top: 18%; left: 14%; animation-delay: 0s"></div>
+    <div class="sparkle" style="top: 72%; left: 21%; animation-delay: 2.4s; width: 9px; height: 9px"></div>
+    <div class="sparkle" style="top: 28%; left: 82%; animation-delay: 1.2s; width: 11px; height: 11px"></div>
+    <div class="sparkle" style="top: 66%; left: 88%; animation-delay: 3.6s"></div>
+    <div class="sparkle" style="top: 8%;  left: 58%; animation-delay: 4.8s; width: 8px; height: 8px"></div>
+</div>
+<main class="stack">
+    <section class="panel card">
+        <div class="pfp-ring">
+            <img class="pfp" src="assets/pfp.png" alt="wssr's profile picture" width="112" height="112">
+        </div>
+        <h1>wssr</h1>
+        <p class="subtitle">software engineer in training</p>
+        <p class="description">Building software, exploring security, and learning how everything works.</p>
+        <nav class="links">
+            <a href="https://github.com/w-ssr" target="_blank" rel="noopener">GitHub</a>
+            <a href="#">Projects</a>
+        </nav>
+        <p class="tag">C# &nbsp;•&nbsp; Luau &nbsp;•&nbsp; Cybersecurity &nbsp;•&nbsp; Reverse Engineering</p>
+    </section>
+    <section class="panel player" id="player" aria-label="Music player">
+        <div class="now">
+            <img class="art" id="art" src="assets/pfp.png" alt="" width="46" height="46">
+            <div class="meta">
+                <div class="title" id="title">—</div>
+                <div class="artist" id="artist">—</div>
+            </div>
+            <div class="eq" aria-hidden="true">
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+        </div>
+        <div class="seek" id="seek" aria-hidden="true">
+            <div class="rail">
+                <div class="fill" id="fill"></div>
+                <div class="knob" id="knob"></div>
+            </div>
+        </div>
+        <div class="times">
+            <span id="cur">0:00</span>
+            <span id="dur">0:00</span>
+        </div>
+        <div class="controls">
+            <button class="btn" id="prev" aria-label="Previous track">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 5h2.5v14H6zM20 5v14L9.5 12z" />
+                </svg>
+            </button>
+            <button class="btn main" id="play" aria-label="Play">
+                <svg class="icon-play" viewBox="0 0 24 24">
+                    <path d="M7 4.5v15L20 12z" />
+                </svg>
+                <svg class="icon-pause" viewBox="0 0 24 24">
+                    <path d="M6.5 4.5h4v15h-4zm7 0h4v15h-4z" />
+                </svg>
+            </button>
+            <button class="btn" id="next" aria-label="Next track">
+                <svg viewBox="0 0 24 24">
+                    <path d="M15.5 5H18v14h-2.5zM4 5l10.5 7L4 19z" />
+                </svg>
+            </button>
+            <div class="volume">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 9v6h4l5 4V5L8 9zm12.5 3a4 4 0 0 0-2.5-3.7v7.4a4 4 0 0 0 2.5-3.7z" />
+                </svg>
+                <input type="range" id="vol" min="0" max="100" value="60" aria-label="Volume">
+            </div>
+        </div>
+        <p class="hint" id="hint">click anywhere to start the music ♪</p>
+    </section>
+</main>
+<audio id="audio" preload="metadata"></audio>
+<script src="assets/js/shader.js"></script>
+<script src="assets/js/player.js"></script>
+</body>
+</html>
