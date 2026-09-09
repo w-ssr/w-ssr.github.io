@@ -5,6 +5,7 @@
     const progress = document.getElementById("progress");
     const seek = document.getElementById("seek");
     const time = document.getElementById("time");
+    const START_TIME = 78;
 
     if (!player || !audio || !button || !progress || !seek || !time) return;
 
@@ -27,6 +28,11 @@
         progress.style.width = `${amount * 100}%`;
         const seconds = Math.floor(audio.currentTime % 60);
         time.textContent = `${Math.floor(audio.currentTime / 60)}:${String(seconds).padStart(2, "0")}`;
+    };
+
+    const resetToStart = () => {
+        audio.currentTime = audio.duration > START_TIME ? START_TIME : 0;
+        update();
     };
 
     audio.addEventListener("loadedmetadata", resetToStart, {once: true});
