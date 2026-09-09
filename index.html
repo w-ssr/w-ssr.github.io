@@ -16,10 +16,14 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <section class="entry" id="entry" aria-label="Site entrance">
+        <button class="entry-button" id="enter" type="button">Enter my domecile</button>
+    </section>
+
     <canvas id="shader" aria-hidden="true"></canvas>
     <div class="scrim" aria-hidden="true"></div>
 
-    <main>
+    <main id="portfolio" inert aria-hidden="true">
         <section class="profile-card" aria-label="wssr profile">
             <div class="avatar-wrap">
                 <img class="avatar" src="assets/pfp.jpg" alt="wssr profile picture" width="118" height="118">
@@ -61,7 +65,7 @@
         </section>
     </main>
 
-    <audio id="audio" src="assets/music/music.mp3" autoplay preload="metadata"></audio>
+    <audio id="audio" src="assets/music/music.mp3" preload="metadata"></audio>
     <script src="assets/js/shader.js"></script>
     <script src="assets/js/player.js"></script>
 </body>

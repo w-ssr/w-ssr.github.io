@@ -5,9 +5,12 @@
     const progress = document.getElementById("progress");
     const seek = document.getElementById("seek");
     const time = document.getElementById("time");
+    const entry = document.getElementById("entry");
+    const enterButton = document.getElementById("enter");
+    const portfolio = document.getElementById("portfolio");
     const START_TIME = 78;
 
-    if (!player || !audio || !button || !progress || !seek || !time) return;
+    if (!player || !audio || !button || !progress || !seek || !time || !entry || !enterButton || !portfolio) return;
 
     const setPlaying = (playing) => {
         player.classList.toggle("playing", playing);
@@ -39,6 +42,23 @@
     if (audio.readyState >= HTMLMediaElement.HAVE_METADATA) resetToStart();
 
     audio.addEventListener("timeupdate", update);
+
+    enterButton.addEventListener("click", () => {
+        enterButton.disabled = true;
+        entry.classList.add("leaving");
+        document.body.classList.add("entered");
+        portfolio.inert = false;
+        portfolio.removeAttribute("aria-hidden");
+
+        resetToStart();
+        audio.play()
+            .then(() => setPlaying(true))
+            .catch(() => setPlaying(false));
+
+        entry.addEventListener("animationend", (event) => {
+            if (event.target === entry) entry.remove();
+        });
+    }, {once: true});
 
     seek.addEventListener("click", (event) => {
         if (!audio.duration) return;

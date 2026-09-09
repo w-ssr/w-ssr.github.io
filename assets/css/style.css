@@ -30,6 +30,47 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.entry {
+    position: fixed;
+    z-index: 20;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: var(--ink);
+}
+
+.entry-button {
+    padding: 12px 4px;
+    border: 0;
+    border-bottom: 1px solid rgba(241, 240, 216, 0.28);
+    background: transparent;
+    color: rgba(241, 240, 216, 0.72);
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: color 180ms ease, border-color 180ms ease;
+}
+
+.entry-button:hover {
+    border-color: var(--pink);
+    color: var(--white);
+}
+
+.entry-button:active {
+    color: var(--pink);
+}
+
+.entry.leaving {
+    pointer-events: none;
+    animation: entry-fade 700ms ease forwards;
+}
+
+.entry.leaving .entry-button {
+    animation: entry-text-out 400ms ease forwards;
+}
+
 #shader,
 .scrim {
     position: fixed;
@@ -74,6 +115,21 @@ main {
     justify-content: center;
     gap: 14px;
     padding: 28px 20px;
+    opacity: 0;
+    filter: blur(14px);
+    pointer-events: none;
+    transform: scale(0.9);
+    transition:
+        opacity 700ms ease 280ms,
+        filter 850ms ease 220ms,
+        transform 900ms cubic-bezier(0.16, 1, 0.3, 1) 180ms;
+}
+
+body.entered main {
+    opacity: 1;
+    filter: none;
+    pointer-events: auto;
+    transform: scale(1);
 }
 
 .profile-card,
@@ -308,6 +364,21 @@ h1 {
     outline-offset: 3px;
 }
 
+@keyframes entry-text-out {
+    to {
+        opacity: 0;
+        letter-spacing: 0.18em;
+    }
+}
+
+@keyframes entry-fade {
+    to {
+        opacity: 0;
+        filter: blur(8px);
+        visibility: hidden;
+    }
+}
+
 @media (max-height: 610px) and (min-width: 550px) {
     main {
         flex-direction: row;
@@ -354,6 +425,10 @@ h1 {
 
     * {
         transition: none !important;
+    }
+
+    .entry.leaving {
+        animation-duration: 1ms;
     }
 
 }
