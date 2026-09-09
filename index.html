@@ -1,99 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>wssr</title>
-    <meta name="description" content="wssr — software engineer in training.">
-    <meta name="theme-color" content="#060409">
-    <link rel="icon" href="assets/pfp.png">
+    <meta name="description" content="wssr - ethical hacker and security consultant">
+    <meta name="theme-color" content="#10110d">
+    <link rel="icon" href="assets/pfp.jpg">
     <meta property="og:title" content="wssr">
-    <meta property="og:description" content="software engineer in training">
-    <meta property="og:image" content="assets/pfp.png">
+    <meta property="og:description" content="ethical hacker / security consultant">
+    <meta property="og:image" content="assets/pfp.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<canvas id="shader" aria-hidden="true"></canvas>
-<div class="vignette" aria-hidden="true"></div>
-<div class="sparkles" aria-hidden="true">
-    <div class="sparkle" style="top: 18%; left: 14%; animation-delay: 0s"></div>
-    <div class="sparkle" style="top: 72%; left: 21%; animation-delay: 2.4s; width: 9px; height: 9px"></div>
-    <div class="sparkle" style="top: 28%; left: 82%; animation-delay: 1.2s; width: 11px; height: 11px"></div>
-    <div class="sparkle" style="top: 66%; left: 88%; animation-delay: 3.6s"></div>
-    <div class="sparkle" style="top: 8%;  left: 58%; animation-delay: 4.8s; width: 8px; height: 8px"></div>
-</div>
-<main class="stack">
-    <section class="panel card">
-        <div class="pfp-ring">
-            <img class="pfp" src="assets/pfp.png" alt="wssr's profile picture" width="112" height="112">
-        </div>
-        <h1>wssr</h1>
-        <p class="subtitle">software engineer in training</p>
-        <p class="description">Building software, exploring security, and learning how everything works.</p>
-        <nav class="links">
-            <a href="https://github.com/w-ssr" target="_blank" rel="noopener">GitHub</a>
-            <a href="#">Projects</a>
-        </nav>
-        <p class="tag">C# &nbsp;•&nbsp; Luau &nbsp;•&nbsp; Cybersecurity &nbsp;•&nbsp; Reverse Engineering</p>
-    </section>
-    <section class="panel player" id="player" aria-label="Music player">
-        <div class="now">
-            <img class="art" id="art" src="assets/pfp.png" alt="" width="46" height="46">
-            <div class="meta">
-                <div class="title" id="title">—</div>
-                <div class="artist" id="artist">—</div>
+    <canvas id="shader" aria-hidden="true"></canvas>
+    <div class="scrim" aria-hidden="true"></div>
+
+    <main>
+        <section class="profile-card" aria-label="wssr profile">
+            <div class="avatar-wrap">
+                <img class="avatar" src="assets/pfp.jpg" alt="wssr profile picture" width="118" height="118">
             </div>
-            <div class="eq" aria-hidden="true">
-                <i></i>
-                <i></i>
-                <i></i>
-                <i></i>
-            </div>
-        </div>
-        <div class="seek" id="seek" aria-hidden="true">
-            <div class="rail">
-                <div class="fill" id="fill"></div>
-                <div class="knob" id="knob"></div>
-            </div>
-        </div>
-        <div class="times">
-            <span id="cur">0:00</span>
-            <span id="dur">0:00</span>
-        </div>
-        <div class="controls">
-            <button class="btn" id="prev" aria-label="Previous track">
-                <svg viewBox="0 0 24 24">
-                    <path d="M6 5h2.5v14H6zM20 5v14L9.5 12z" />
-                </svg>
+
+            <h1>wssr</h1>
+            <p class="role">ethical hacker / security consultant</p>
+
+            <nav class="links" aria-label="Social links">
+                <a href="https://github.com/w-ssr" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2C6.48 2 2 6.59 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.91c-2.78.62-3.37-1.21-3.37-1.21-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.3 9.3 0 0 1 12 7.01a9.3 9.3 0 0 1 2.5.35c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.76c0 .27.18.59.69.49A10.26 10.26 0 0 0 22 12.25C22 6.59 17.52 2 12 2z"/>
+                    </svg>
+                    <span>github</span>
+                </a>
+                <a href="https://discord.gg/tixsploit" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19.54 5.34A17.3 17.3 0 0 0 15.29 4l-.52 1.08a15.9 15.9 0 0 0-5.54 0L8.71 4a17.1 17.1 0 0 0-4.25 1.35C1.77 9.37 1.04 13.3 1.4 17.18a17.3 17.3 0 0 0 5.21 2.67l1.27-1.75a11 11 0 0 1-1.99-.97l.49-.38a12.4 12.4 0 0 0 11.24 0l.49.38a12 12 0 0 1-1.99.97l1.27 1.75a17.2 17.2 0 0 0 5.21-2.67c.43-4.5-.74-8.39-3.06-11.84zM8.75 14.79c-1.02 0-1.85-.95-1.85-2.11s.81-2.12 1.85-2.12c1.05 0 1.87.96 1.85 2.12 0 1.16-.81 2.11-1.85 2.11zm6.5 0c-1.02 0-1.85-.95-1.85-2.11s.81-2.12 1.85-2.12c1.05 0 1.87.96 1.85 2.12 0 1.16-.8 2.11-1.85 2.11z"/>
+                    </svg>
+                    <span>discord</span>
+                </a>
+            </nav>
+        </section>
+
+        <section class="player" id="player" aria-label="Music player">
+            <button id="play" type="button" aria-label="Play music">
+                <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg>
             </button>
-            <button class="btn main" id="play" aria-label="Play">
-                <svg class="icon-play" viewBox="0 0 24 24">
-                    <path d="M7 4.5v15L20 12z" />
-                </svg>
-                <svg class="icon-pause" viewBox="0 0 24 24">
-                    <path d="M6.5 4.5h4v15h-4zm7 0h4v15h-4z" />
-                </svg>
-            </button>
-            <button class="btn" id="next" aria-label="Next track">
-                <svg viewBox="0 0 24 24">
-                    <path d="M15.5 5H18v14h-2.5zM4 5l10.5 7L4 19z" />
-                </svg>
-            </button>
-            <div class="volume">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M4 9v6h4l5 4V5L8 9zm12.5 3a4 4 0 0 0-2.5-3.7v7.4a4 4 0 0 0 2.5-3.7z" />
-                </svg>
-                <input type="range" id="vol" min="0" max="100" value="60" aria-label="Volume">
+            <div class="track">
+                <span>now playing</span>
+                <strong>The Bottom3</strong>
+                <small>Glorb</small>
             </div>
-        </div>
-        <p class="hint" id="hint">click anywhere to start the music ♪</p>
-    </section>
-</main>
-<audio id="audio" preload="metadata"></audio>
-<script src="assets/js/shader.js"></script>
-<script src="assets/js/player.js"></script>
+            <div class="progress" id="seek">
+                <span id="progress"></span>
+            </div>
+            <time id="time">0:00</time>
+        </section>
+    </main>
+
+    <audio id="audio" src="assets/music/music.mp3" autoplay preload="metadata"></audio>
+    <script src="assets/js/shader.js"></script>
+    <script src="assets/js/player.js"></script>
 </body>
 </html>
